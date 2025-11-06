@@ -1,0 +1,12 @@
+{% extends "api_s/base.html" %} {% block content %}
+
+<h2>Tópicos</h2>
+<ul>
+  {% for topic in topics %}
+  <li>{{ topic }}</li>
+  {% empty %}
+  <li>Nenhum tópico adicionado.</li>
+  {% endfor %}
+</ul>
+
+{% endblock content %}

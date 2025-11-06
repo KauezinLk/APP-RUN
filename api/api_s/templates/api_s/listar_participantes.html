@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Participantes</h1>
+
+<ul>
+  {% for participante in participantes %}
+    <li>
+      <strong>{{ participante.nome }}</strong> — {{ participante.idade }} anos — 
+      Equipe: {{ participante.equipe|default:"Sem equipe" }} — 
+      Corrida: {{ participante.corrida.nome }}
+    </li>
+  {% empty %}
+    <li>Nenhum participante cadastrado.</li>
+  {% endfor %}
+</ul>
+{% endblock content %}

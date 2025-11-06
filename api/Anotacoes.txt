@@ -1,0 +1,24 @@
+--------------------------------- Itens de exibição do ADMIN.PY ------------------------------------------
+> list_display: define as colunas que aparecem na tabela do admin.
+
+> list_filter: adiciona filtros laterais no painel admin, permitindo que você selecione, por exemplo:
+
+Categoria: 15–19, 20–24, …
+Sexo: M ou F
+
+---------------------------------- Papel do Inline vs ModelAdmin ------------------------------------------
+
+ModelAdmin (ex.: CorridaAdmin) representa um modelo principal que aparece na lista do admin e tem sua própria página. Essas classes são registradas no admin (com @admin.register ou admin.site.register).
+
+TabularInline / StackedInline (ex.: ParticipanteInline) representam configurações de edição de modelos relacionados. Eles não são modelos por si só, são apenas instruções que dizem como mostrar/editar os objetos filhos dentro da página do pai.
+
+Assim: inlines não são registrados isoladamente — eles são referenciados pelo ModelAdmin do pai via inlines = [...].
+
+----------------------------- Inline ADMIN.PY -------------------------------------------------------------------
+
+Class ParticipanteInline(admin.TabularInline):	Cria um Inline (exibição dentro do pai)
+
+model = Participante  >>>  Diz qual modelo filho esse Inline vai exibir e permitir editar
+
+inlines = [ParticipanteInline] (no CorridaAdmin)  >>>  Diz onde esse Inline vai aparecer — dentro da Corrida
+-----------------------------------------------------------------------------------------------------------

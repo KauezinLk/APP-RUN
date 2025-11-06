@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mt-4">
+  <h1 class="mb-4">Tabelas da Corrida</h1>
+
+  {% if tabelas_html %}
+    {% for tabela in tabelas_html %}
+      <div class="table-responsive mb-5">
+        {{ tabela|safe }}
+      </div>
+    {% endfor %}
+  {% else %}
+    <p class="text-danger">Nenhuma tabela foi encontrada no PDF.</p>
+  {% endif %}
+
+</div>
+
+{% endblock %}

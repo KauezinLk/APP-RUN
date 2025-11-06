@@ -1,0 +1,18 @@
+{% extends "api_s/basse.html" %} {% block content %}
+
+<h2>{{ topic.descricao }}</h2>
+<p>Entradas</p>
+
+<ul>
+  {% for entry in entries %}
+
+  <li>
+    <p>{{ entry.text | linebreaks}}</p>
+  </li>
+</ul>
+
+{% empty %}
+
+<li>Nenhuma entrada adicionada ainda.</li>
+
+{% endfor %} {% endblock content %}

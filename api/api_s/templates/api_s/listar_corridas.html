@@ -1,0 +1,16 @@
+{% extends 'base.html' %} 
+{% block content %}
+<h1>Corridas disponíveis</h1>
+
+<ul>
+  {% for corrida in corridas %}
+  <li>
+    <strong>{{ corrida.nome }}</strong> — {{ corrida.data }} — 
+    {{ corrida.local}}
+    <a href="{% url 'inscrever_corrida' corrida.id %}">Inscrever-se</a>
+  </li>
+  {% empty %}
+  <li>Nenhuma corrida cadastrada.</li>
+  {% endfor %}
+</ul>
+{% endblock %}
